@@ -32,3 +32,10 @@ produtos: List[Dict[str, any]] = [
 def listar_produtos():
     return produtos
 
+
+@app.get("/produtos/{id}")
+def pegar_produto(id: int):
+    for produto in produtos:
+        if produto["id"] == id:
+            return produto
+    return {"Status": 404, "Mensagem": "Produto não encontrado"}
