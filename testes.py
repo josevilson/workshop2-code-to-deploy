@@ -23,7 +23,7 @@ def test_tamanho_lista_de_produtos():
 
 def test_pegar_um_produto():
     response = client.get("/produtos/1")
-    assert response.json() == {"id": 1, "nome": "Produto 1", "preco": 10.0}
+    assert response.json() == {"id": 1, "nome": "Produto 1", "preco": 11.0}
 
 
 
