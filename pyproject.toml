@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "workshop2-jupyter-deploy"
+version = "0.1.0"
+description = ""
+authors = ["Jose Vilson <contatojosevilson@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.111.0"
+uvicorn = "^0.29.0"
+taskipy = "^1.12.2"
+pytest = "^8.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+
+run = "uvicorn main:app --reload"
+test = "pytest -v"
+kill = "kill -9 $(lsof -t -i:8000)"
