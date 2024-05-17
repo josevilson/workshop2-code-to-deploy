@@ -21,6 +21,14 @@ def test_tamanho_lista_de_produtos():
     response = client.get("/produtos")
     assert len(response.json()) == 3
 
+def test_pegar_um_produto():
+    response = client.get("/produtos/1")
+    assert response.json() == {
+        "id": 1,
+        "nome": "Smartphone",
+        "descricao": "Descrição do produto 1",
+        "preco": 11.00
+    }
 
 
 
