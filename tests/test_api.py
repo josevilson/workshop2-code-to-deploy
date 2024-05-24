@@ -1,7 +1,7 @@
 import pytest
-
 from fastapi.testclient import TestClient
-from main import app
+
+from app.main import app
 
 client = TestClient(app)
 
@@ -10,9 +10,11 @@ def test_ola_mundo_status_code():
     response = client.get("/")
     assert response.status_code == 200
 
+
 def test_ola_mundo():
     response = client.get("/")
     assert response.json() == {"mensagem": "Olá mundo!"}
+
 
 def test_listar_produto_status_code():
     response = client.get("/produtos")
@@ -20,6 +22,7 @@ def test_listar_produto_status_code():
 def test_tamanho_lista_de_produtos():
     response = client.get("/produtos")
     assert len(response.json()) == 3
+
 
 def test_pegar_um_produto():
     response = client.get("/produtos/1")
@@ -29,6 +32,4 @@ def test_pegar_um_produto():
         "descricao": "Descrição do produto 1",
         "preco": 11.00
     }
-
-
 
