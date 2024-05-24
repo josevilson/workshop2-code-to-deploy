@@ -4,7 +4,6 @@ version = "0.1.0"
 description = ""
 authors = ["Jose Vilson <contatojosevilson@gmail.com>"]
 readme = "README.md"
-package-mode = false
 
 
 
